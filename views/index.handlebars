@@ -24,7 +24,6 @@
     <li>
         <span>🍔</span>
         <p>{{this.id}}. {{this.burger_name}} </p>
-        <button data-id="{{this.id}}" class="eatBurger">Devour!</button>
     </li>
     {{/if}}
     {{/each}}
@@ -45,16 +44,24 @@
     $('.eatBurger').on('click', function (event) {
         event.preventDefault();
         var id = $(this).data('id');
-        var devoured = {
-            devoured: true
-        }
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
-            data: devoured
         }).then(function () {
             console.log(id + "burger moved to devoured list");
             location.reload();
         }
         );
+    })
+
+    $('.create-form').on('submit', function (event) {
+        event.preventDefault();
+        var newBurger = {
+            name: $('#ca').val().trim()
+        };
+        console.log(newBurger);
+        $.post("/api/burgers", newBurger).then(function () {
+            console.log("created new burger");
+            location.reload();
+        });
     })
 </script>

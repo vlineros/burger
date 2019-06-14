@@ -16,8 +16,7 @@ router.get("/", function(req, res) {
 // need to add new burger_name to table burgers (all other columns auto-populate)
 
 router.post("/api/burgers", function(req, res) {
-  burger.insertOne([req.body.burgerName], function(result) {
-    // Send back the ID of the new quote
+  burger.insertOne(req.body.name, function(result) {
     res.json({ id: result.insertId });
   });
 });

@@ -9,22 +9,26 @@ var orm = {
     });
   },
   insertOne: function(burgerName, cb) {
-    connection.query(
-      "INSERT INTO burgers (burger_name) VALUES(" + burgerName + ");",
-      function(err, data) {
-        if (err) throw err;
-        cb(data);
-      }
-    );
+    var queryString =
+      "INSERT INTO burgers (burger_name) VALUES ('" + burgerName + "');";
+    console.log(queryString);
+    connection.query(queryString, function(err, data) {
+      if (err) throw err;
+      cb(data);
+    });
   },
   updateOne: function(burgerId, isDevoured, cb) {
-    connection.query(
-      "UPDATE burgers SET devoured = " + isDevoured + "WHERE id = " + burgerId,
-      function(err, data) {
-        if (err) throw err;
-        cb(data);
-      }
-    );
+    var queryString =
+      "UPDATE burgers SET devoured = " +
+      isDevoured +
+      " WHERE id = " +
+      burgerId +
+      ";";
+    console.log(queryString);
+    connection.query(queryString, function(err, data) {
+      if (err) throw err;
+      cb(data);
+    });
   }
 };
 
