@@ -1,0 +1,34 @@
+/* 
+devoured list should be faded out
+
+*/
+
+ul {
+  list-style: none;
+}
+h1,
+form,
+h2,
+ul {
+  text-align: center;
+  margin: 10px;
+}
+button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.eatBurger,
+span,
+p {
+  display: inline-block;
+  font-size: 120%;
+}
+.eatBurger {
+  font-size: 100%;
+  background-color: darkorange;
+}
+.eaten-burger {
+  text-decoration: line-through;
+}
