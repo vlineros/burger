@@ -3,14 +3,14 @@ var connection = require("./connection.js");
 
 var orm = {
   selectAll: function(cb) {
-    connection.query("SELECT * FROM burgers", function(err, data) {
+    connection.query("SELECT * FROM burgers;", function(err, data) {
       if (err) throw err;
       cb(data);
     });
   },
   insertOne: function(burgerName, cb) {
     connection.query(
-      "INSERT INTO burgers (burger_name) VALUES(" + burgerName + ")",
+      "INSERT INTO burgers (burger_name) VALUES(" + burgerName + ");",
       function(err, data) {
         if (err) throw err;
         cb(data);

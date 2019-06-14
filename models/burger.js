@@ -13,6 +13,7 @@ var burger = {
   },
   updateOne: function(cb) {
     orm.updateOne(burgerId, isDevoured, function(res) {
+      console.log(burgerId);
       cb(res);
     });
   }
