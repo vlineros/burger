@@ -1,0 +1,1 @@
+INSERT INTO burgers(burger_name) VALUES('The Bacon King'),('Jalapeno and Cheese'),('The Bowel Quaker');
